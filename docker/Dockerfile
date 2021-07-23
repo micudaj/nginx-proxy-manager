@@ -41,7 +41,7 @@ RUN yarn install
 COPY docker/rootfs /
 
 # Remove frontend service not required for prod, dev nginx config as well
-RUN rm -rf /etc/services.d/frontend /etc/nginx/conf.d/dev.conf
+RUN rm -rf /etc/services.d/frontend && rm -f /etc/nginx/conf.d/dev.conf
 
 # Change permission of logrotate config file
 RUN chmod 644 /etc/logrotate.d/nginx-proxy-manager
